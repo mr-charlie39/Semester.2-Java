@@ -1,0 +1,18 @@
+<------------------------------ DISPLAYING: ---------------------------------->
+1. System.out.println("content");
+
+2. public class Main {
+    public static void main(String []args) {
+        //content
+    }
+} 
+
+[We need to add it before running every program].
+
+3. System.out.println("var = " + var); ["+" is used to joined the variables in output screen].
+
+
+<----------------------------- DATA TYPES: ------------------------------->
+
+int variable_name = value;
+float variable_name = valuef;
