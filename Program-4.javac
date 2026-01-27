@@ -1,0 +1,175 @@
+import java.util.Scanner;
+
+public class program_4 {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the length of array : ");
+        int l = sc.nextInt();
+        int arr[] = new int[l];
+
+        System.out.println("<=============== Enter the Digits in Array: ===============>");
+        for (int i = 0; i < l; i++) {
+            System.out.print("Enter the " + (i + 1) + " Element : ");
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.print("Array: [");
+        for (int i = 0; i < l; i++) {
+            System.out.print(arr[i]);
+            if (i < l - 1) {
+                System.out.print(",");
+            }
+        }
+        System.out.println("]");
+
+        System.out.println("<=============== OPERATIONS: ===============>");
+        System.out.println("Press -1 For - ADDITION:");
+        System.out.println("Press -2 For - SUBTRACTION:");
+        System.out.println("Press -3 For - MULTIPLICATION:");
+        System.out.println("Press -4 For - Division:");
+        System.out.print("Enter your choice: ");
+
+        int choice = sc.nextInt();
+        int result = 0;
+
+        if (choice > 0 && choice < 5) {
+
+            if (choice == 1) {
+                System.out.println("<=============== ADDITION: ===============>");
+                System.out.print("How many numbers you want to add? : ");
+                int digit = sc.nextInt();
+
+                for (int i = 0; i < digit; i++) {
+                    System.out.print("Enter the position of number: ");
+                    int pos = sc.nextInt();
+                    result += arr[pos - 1];
+                }
+                System.out.println("Result is : " + result);
+
+            } else if (choice == 3) {
+                System.out.println("<=============== MULTIPLICATION: ===============>");
+                System.out.print("How many numbers you want to multiply? : ");
+                int digit = sc.nextInt();
+                result = 1;
+
+                for (int i = 0; i < digit; i++) {
+                    System.out.print("Enter the position of number: ");
+                    int pos = sc.nextInt();
+                    result *= arr[pos - 1];
+                }
+                System.out.println("Result is : " + result);
+
+            } else if (choice == 2) {
+                System.out.println("<=============== SUBTRACTION: ===============>");
+                System.out.print("How many numbers you want to subtract? : ");
+                int digit = sc.nextInt();
+
+                int arr1[] = new int[digit];
+                for (int i = 0; i < digit; i++) {
+                    System.out.print("Enter the position of number: ");
+                    int pos = sc.nextInt();
+                    arr1[i] = arr[pos - 1];
+                }
+
+                System.out.print("Choosed Array: [");
+                for (int i = 0; i < digit; i++) {
+                    System.out.print(arr1[i]);
+                    if (i < digit - 1) {
+                        System.out.print(",");
+                    }
+                }
+                System.out.println("]");
+
+                System.out.println("Enter the Format in which you want to subtract : ");
+                System.out.println("1- Ascending Order");
+                System.out.println("2- Descending Order");
+                System.out.print("Enter your choice: ");
+                int choice2 = sc.nextInt();
+
+                if (choice2 == 1) {
+                    for (int i = 0; i < digit; i++) {
+                        for (int j = i + 1; j < digit; j++) {
+                            if (arr1[i] > arr1[j]) {
+                                int temp = arr1[i];
+                                arr1[i] = arr1[j];
+                                arr1[j] = temp;
+                            }
+                        }
+                    }
+
+                    System.out.print("Array in Ascending Order: [");
+                    for (int i = 0; i < digit; i++) {
+                        System.out.print(arr1[i]);
+                        if (i < digit - 1) {
+                            System.out.print(",");
+                        }
+                    }
+                    System.out.println("]");
+
+                } else if (choice2 == 2) {
+                    for (int i = 0; i < digit; i++) {
+                        for (int j = i + 1; j < digit; j++) {
+                            if (arr1[i] < arr1[j]) {
+                                int temp = arr1[i];
+                                arr1[i] = arr1[j];
+                                arr1[j] = temp;
+                            }
+                        }
+                    }
+
+                    System.out.print("Array in Descending Order: [");
+                    for (int i = 0; i < digit; i++) {
+                        System.out.print(arr1[i]);
+                        if (i < digit - 1) {
+                            System.out.print(",");
+                        }
+                    }
+                    System.out.println("]");
+                }
+                
+                    for(int i = 0 ; i < digit; i++){
+                        if(i == 0){
+                            result = arr1[i];
+                        } else {
+                            result -= arr1[i];
+                        }
+                    }
+                System.out.println("Result is : " + result);
+                
+            }else if( choice == 4){
+                System.out.println("<=============== DIVISION: ===============>");
+                System.out.print("How many numbers you want to divide? : ");
+                int digit = sc.nextInt();
+
+                int arr1[] = new int[digit];
+                for (int i = 0; i < digit; i++) {
+                    System.out.print("Enter the position of number: ");
+                    int pos = sc.nextInt();
+                    arr1[i] = arr[pos - 1];
+                }
+
+                System.out.print("Choosed Array: [");
+                for (int i = 0; i < digit; i++) {
+                    System.out.print(arr1[i]);
+                    if (i < digit - 1) {
+                        System.out.print(",");
+                    }
+                }
+                System.out.println("]");
+
+                for(int i = 0 ; i < digit; i++){
+                    if(i == 0){
+                        result = arr1[i];
+                    } else {
+                        result /= arr1[i];
+                    }
+                }
+                System.out.println("Result is : " + result);
+            }
+        }
+
+        sc.close();
+    }
+}
