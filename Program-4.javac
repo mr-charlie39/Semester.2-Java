@@ -168,6 +168,8 @@ public class program_4 {
                 }
                 System.out.println("Result is : " + result);
             }
+        }else{
+            
         }
 
         sc.close();
