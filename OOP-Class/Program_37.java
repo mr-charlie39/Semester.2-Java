@@ -9,6 +9,7 @@ abstract class Shape{
 }
 
 class input extends Shape{
+   
     Scanner sc = new Scanner(System.in);
     void input(){
         System.out.print("Enter the length : ");
@@ -25,6 +26,12 @@ class input extends Shape{
     void display(){
         System.out.println("Area of the rectangle: " + area());
         System.out.println("Perimeter of the rectangle: " + perimeter());
+    }
+    public Scanner getSc() {
+        return sc;
+    }
+    public void setSc(Scanner sc) {
+        this.sc = sc;
     }
 }
 
