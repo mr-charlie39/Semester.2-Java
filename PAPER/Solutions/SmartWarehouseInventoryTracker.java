@@ -1,5 +1,36 @@
 import java.util.Scanner;
 public class SmartWarehouseInventoryTracker {
+     public void main(String[] args){
+        Scanner s = new Scanner(System.in);
+        String[][] inventory = new String[3][5];
+
+        fillinventory(inventory , s);
+
+        System.out.println("---------------------------------------------------------------");
+
+        for(int i = 0 ; i < inventory.length ; i++){
+            for(int j = 0 ; j < inventory[i].length ; j++){
+                System.out.print("| " + inventory[i][j] + " \t | ");
+                
+            }
+            System.out.println("");
+            System.out.println("---------------------------------------------------------------");        }
+
+        
+        for(int i = 0 ;i < inventory.length ;i++){
+            for(int j = 1; j < inventory[i].length ; j++){
+                System.out.println("Category : \"" + inventory[i][0] + "\" -  Slot : " + j + " -  Quantity : " + inventory[i][j]);
+                int quantity = Integer.parseInt(inventory[i][j]);
+                System.out.println("Status of item in slot " + j + " : " + restock(quantity));
+            }
+        }
+
+
+        System.out.println("Total stock in warehouse : " + totalStock(inventory));
+
+        System.out.println("Inventory tracking completed.");
+        
+    }
 
     String fillinventory(String[][] inventory , Scanner s){
         for(int i = 0 ; i < 3 ; i++){
@@ -49,37 +80,5 @@ public class SmartWarehouseInventoryTracker {
             }
         }
         return total;
-    }
-
-    public void main(String[] args){
-        Scanner s = new Scanner(System.in);
-        String[][] inventory = new String[3][5];
-
-        fillinventory(inventory , s);
-
-        System.out.println("----------------------------------------------------------");
-
-        for(int i = 0 ; i < inventory.length ; i++){
-            for(int j = 0 ; j < inventory[i].length ; j++){
-                System.out.print("| " + inventory[i][j] + " \t | ");
-                
-            }
-            System.out.println("");
-            System.out.println("----------------------------------------------------------");        }
-
-        
-        for(int i = 0 ;i < inventory.length ;i++){
-            for(int j = 1; j < inventory[i].length ; j++){
-                System.out.println("Category : \"" + inventory[i][0] + "\" -  Slot : " + j + " -  Quantity : " + inventory[i][j]);
-                int quantity = Integer.parseInt(inventory[i][j]);
-                System.out.println("Status of item in slot " + j + " : " + restock(quantity));
-            }
-        }
-
-
-        System.out.println("Total stock in warehouse : " + totalStock(inventory));
-
-        System.out.println("Inventory tracking completed.");
-        
     }
 }
