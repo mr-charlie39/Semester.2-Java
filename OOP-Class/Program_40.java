@@ -4,8 +4,8 @@ public class Program_40 {
 
     Scanner s = new Scanner(System.in);
 
-    public void firstMethod(){
-         System.out.println("Enter the length of array : ");
+    public void firstMethod() {
+        System.out.println("Enter the length of array : ");
         int length = s.nextInt();
 
         int[] array = new int[length];
@@ -48,34 +48,46 @@ public class Program_40 {
 
     }
 
-    public void secondMethod(){
+    public void secondMethod() {
 
         System.out.println("Enter length of array : ");
         int length = s.nextInt();
 
         int[] array = new int[length];
-        
-        int count = 0;
-        int cand = 0;
 
-        for(int i = 0 ;i < length ; i++){
+        for (int i = 0; i < length; i++) {
             System.out.println("Enter the element at index " + (i + 1) + " : ");
             array[i] = s.nextInt();
         }
 
-        for(int i = 0; i < length-1 ;i++){
-            if(count == 0){
+        
+        int count = 0;
+        int cand = 0;
+
+        for (int i = 0; i < length; i++) {
+            if (count == 0) {
                 cand = array[i];
             }
-            if(array[i] == cand){
+            if (array[i] == cand) {
                 count++;
-            }else{
+            } else {
                 count--;
             }
         }
 
-        System.out.println("The majority element is : " + cand);
+        
+        count = 0;
+        for (int i = 0; i < length; i++) {
+            if (array[i] == cand) {
+                count++;
+            }
+        }
 
+        if (count > length / 2) {
+            System.out.println("The majority element is : " + cand);
+        } else {
+            System.out.println("No majority element found.");
+        }
 
     }
 
