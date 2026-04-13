@@ -30,26 +30,31 @@ public class Program_42 {
 
         System.out.println("How many Students you want : ");
         int n = s.nextInt();
+        s.nextLine(); 
         System.out.println("You want to add " + n + " students.");
 
-        int[] studets_name = new int[n];
+        String[] studets_name = new String[n];
 
         int[] tution_fee = new int[n];
         int[] academic_score = new int[n];
 
         for(int i = 0 ;i < n ; i++){
             System.out.print("Enter the Name of Student " + (i+1) + " : ");
-            studets_name[i] = s.nextInt();
+            studets_name[i] = s.nextLine();
+           
 
             System.out.print("Enter the Tution Fee of Student " + (i+1) + " : ");
             tution_fee[i] = s.nextInt();
+            s.nextLine();
             if(tution_fee[i] == 0){
                 System.out.println("Tution Fee cannot be zero. Please enter a valid amount.");
                 tution_fee[i] = s.nextInt();
+                s.nextLine();
             }
 
             System.out.print("Enter the Academic Score of Student " + (i+1) + " From (1 - 100): ");
             academic_score[i] = s.nextInt();
+            s.nextLine();
 
             if(academic_score[i] < 1 || academic_score[i] > 100){
                 System.out.println("Academic Score must be between 1 and 100. Please enter a valid score.");
@@ -58,7 +63,6 @@ public class Program_42 {
 
             int financialAid = calculategrade(academic_score[i], tution_fee[i]);
             System.out.println("Financial Aid for Student " + (i+1) + " : " + financialAid);
-            
         }
     }
 }
