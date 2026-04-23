@@ -1,12 +1,16 @@
 public class Program_12 {
 
+    void display(){
+        System.out.println("Name : " + c.getName());
+        System.out.println("Price : " + c.getPrice());
+        System.out.println("Top-Speed : " + c.getTopSpeed());
+    }
+
     public static void main(String[] args) {
 
         Car c = new Car("BMW", 100000, 200);
 
-        System.out.println("Name : " + c.getName());
-        System.out.println("Price : " + c.getPrice());
-        System.out.println("Top-Speed : " + c.getTopSpeed());
+        c.display();
     }
 }
 
